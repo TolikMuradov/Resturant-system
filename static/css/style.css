@@ -1,0 +1,583 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --dark: #4A4947;
+    --main: #B17457;
+    --light:#FAF7F0;
+    --secondary: #D8D2C2;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark);
+}
+
+nav{
+    width: 100%;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark);
+    transition: .5s;
+}
+
+nav.scrolled{
+    background-color: var(--dark); /* Kaydırıldığında değişecek renk */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Kaydırıldığında gölge eklenir */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    width: 100%;
+    padding: 0px 60px;
+
+
+}
+.links .item{
+    text-decoration: none;
+    color: var(--light);
+    font-size: 16px;
+    margin-inline: 10px;
+    position: relative;
+}
+.links .item::after{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--main);
+    transition: .3s;
+}
+.links .item:hover::after,
+.links .item.activeitem::after
+{
+    width: 100%;
+}
+.links .item:hover,
+.links .item.activeitem
+{
+    color: var(--main);
+}
+
+.loginbtn{
+    padding: 5px 10px;
+    color: var(--light);
+    border: 1px solid var(--main);
+    background-color: var(--main);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.loginbtn:hover{
+    background-color: var(--light);
+    color: var(--dark);
+    border: 1px solid var(--light);
+}
+.profilebtn{
+    padding: 5px 10px;
+    color: var(--light);
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+}
+/* Slideshow container */
+.banner{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+}
+
+.numbers {
+    width: 100px;
+    color: var(--light);
+    background-color: var(--dark);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 20px;
+}
+
+.numbers div {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    font-family: "Great Vibes", serif;
+}
+
+.numbers div.active {
+    border: 1px solid var(--main);
+    font-weight: bold;
+    border-radius: 100px;
+    color: var(--main);
+}
+
+.prev, .next {
+    background-color: var(--dark);
+    color: var(--light);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    margin-block: 20px;
+}
+.prev:hover, .next:hover {
+    color: var(--main);
+}
+
+.slider {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.banner-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(74, 73, 71,0.7);
+}
+.banner-text h1{
+    width: 100%;
+    text-align: center;
+    color: var(--light);
+    position : absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    font-family: "Great Vibes", serif;
+    letter-spacing: 5px;
+}
+.slider img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: left 0.5s ease-in-out;
+}
+
+.slider img.active {
+    left: 0;
+}
+
+.slider img.previous {
+    left: -100%;
+}
+
+.social{
+    width: 100px;
+    background-color: var(--dark);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 20px;
+}
+.social a{
+    color: var(--light);
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+.social a:hover{
+    color: var(--main);
+}
+
+.sep{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sep img{
+    width: 100px;
+}
+.header h1{
+    font-size: 40px;
+    font-family: "Great Vibes", serif;
+    letter-spacing: 5px;
+    color: var(--light);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.reserve {
+    width: 100%;
+    height: 500px;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    background-image: url('/static/assets/img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.reserve .header h1 {
+    font-size: 2.5rem;
+    font-family: "Great Vibes", serif;
+    color: var(--light);
+    margin-bottom: 10px;
+}
+
+.reserve .header small {
+    font-size: 1.2rem;
+    color: var(--main);
+}
+
+.reserve a {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--main);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.reserve a:hover {
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+
+
+
+.about {
+    width: 100%;
+    min-height: 80vh; /* Mutlak bir yükseklik yerine min-height kullanılabilir */
+    background-color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* İçeriği biraz boşlukla düzenleyin */
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+    background-image: url('/static/assets/img/aboutbg.png');
+    background-size: cover; /* Görseli tam olarak kaplasın */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.image img{
+    width: 115%;
+    height: 115%;
+    object-fit: cover;
+}
+
+.text h1{
+    font-size: 40px;
+    font-family: "Great Vibes", serif;
+    letter-spacing: 5px;
+    color: var(--light);
+    text-align: center;
+}
+.text p{
+    font-size: 13px;
+    color: var(--light);
+    text-align: center;
+}
+
+form{
+    padding:20px 50px;
+}
+form input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid  var(--light);
+    color: var(--light);
+    background: none;
+}
+form textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid  var(--light);
+    background: none;
+    color: var(--light);
+}
+form button{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid  var(--light);
+    background: none;
+    color: var(--light);
+}
+form button:hover{
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+iframe{
+    filter: grayscale(100%);
+}
+
+.cartbtn {
+    padding: 5px 10px;
+    color: var(--light);
+    border-radius: 5px;
+    text-decoration: none;
+    position: relative;
+    font-size: 25px;
+}
+
+.cartbtn:hover {
+    color: var(--main);
+}
+
+.cart-count {
+    background-color: var(--main);
+    color: var(--light);
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 8px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.sepparator{
+    width: 1px;
+    height: 30px;
+    background-color: var(--light);
+    margin-inline: 10px;
+}
+
+.order{
+    display: flex;
+    align-items: center;
+}
+
+
+nav.scrolled .hamburger {
+    top: 15px;
+}
+
+
+/* Hamburger Menü */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 100;
+    transition: top 0.5s;
+}
+
+.hamburger div {
+    width: 40px; /* Yeni genişlik */
+    height: 3px;
+    background-color: var(--dark);
+    transition: transform 0.5s, opacity 0.3s;
+    margin-top: 5px;
+}
+
+/* İlk çizgi */
+.hamburger.open div:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 8px); /* Translate değerlerini genişliğe uygun hale getirdim */
+}
+
+/* Orta çizgi */
+.hamburger.open div:nth-child(2) {
+    transform: rotate(360deg) ; /* Orta çizgi kaybolur */
+    opacity: 0; /* Orta çizgi kaybolur */
+}
+
+/* Son çizgi */
+.hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -11px); /* Translate değerlerini genişliğe uygun hale getirdim */
+}
+
+.mobile-cart{
+    display: none;
+}
+/* Mobil Navbar */
+.mobile-menu {
+    display: none; /* Mobil menü gizli, ancak geçişler için ayarlandı */
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    z-index: 99;
+    padding: 30px;
+    transition: max-height 0.3s ease-in-out; /* Açılıp kapanma animasyonu */
+    overflow: hidden;
+    max-height: 0; /* Menü başlangıçta kapalı */
+}
+
+.mobile-menu.open {
+    right: 0; /* Menü içeriğine göre açılır */
+    max-height: 100%; /* Menü içeriğine göre açılır */
+}
+
+.mobile-menu .item {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--light);
+    margin-bottom: 10px;
+    transition: color 0.3s;
+
+    position: relative;
+}
+.mobile-menu .item::after{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--main);
+    transition: width 0.3s;
+    z-index: -1;
+}
+
+.mobile-menu .item:hover::after{
+    color: var(--dark);
+    width: 100%;
+}
+
+/* Ekran Genişliğine Göre Uyarlama */
+@media screen and (max-width: 1000px) {
+    .links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .order {
+        display: none;
+    }
+    .mobile-menu {
+        display: flex;
+    }
+
+    .banner {
+        flex-direction: column; /* Yatay düzen yerine dikey düzen */
+        height: auto; /* Yükseklik içeriğe göre ayarlanır */
+    }
+
+    .numbers {
+        flex-direction: row; /* Sayılar yatay sıraya geçer */
+        justify-content: center; /* Ortalanır */
+        width: 100%; /* Tam genişlik kaplar */
+        background-color: transparent; /* Arka plan rengi kaldırılır */
+        padding: 10px 0; /* İç boşluk */
+    }
+
+    .numbers div {
+        font-size: 14px; /* Yazı boyutu küçültülür */
+        margin-inline: 5px; /* Sayılar arası boşluk */
+        padding: 5px; /* İç boşluk */
+        border: none; /* Kenarlık kaldırılır */
+    }
+
+    .numbers div.active {
+        font-weight: bold; /* Aktif olan sayı kalın yazı */
+        color: var(--main); /* Aktif renk değişimi */
+        border: 1px solid var(--main); /* Kenarlık eklenir */
+        border-radius: 50px; /* Yuvarlak kenar */
+        padding: 5px 10px; /* İç boşluk */
+    }
+
+    .prev, .next {
+        background-color: var(--dark);
+        color: var(--main);
+        border: none;
+        padding: 5px 10px;
+        margin: 0 5px; /* Butonlar arası boşluk */
+        font-size: 14px; /* Daha küçük font */
+    }
+    .slider {
+        flex-grow: 1;
+        overflow: hidden; /* Taşan elemanları gizle */
+        position: relative; /* İçindeki img'lere referans için */
+        width: 100%; /* Tam genişlik */
+        height: 300px; /* Tam yükseklik */
+    }
+    
+    .slider img {
+        width: 100%; /* Görünüm alanını kapla */
+        height: 100%; /* Görünüm alanını kapla */
+        position: absolute; /* Üst üste binme için */
+        top: 0;
+        left: 100%; /* Başlangıçta ekran dışında */
+        transition: left 0.5s ease-in-out; /* Geçiş animasyonu */
+        z-index: 1; /* Varsayılan sıralama */
+        border-radius: 0;
+    }
+    
+    .slider img.active {
+        left: 0; /* Aktif resim görünür */
+        z-index: 2; /* En üstte görünür */
+    }
+    
+    .slider img.previous {
+        left: -100%; /* Önceki resim ekranın solunda */
+        z-index: 1;
+    }
+
+    .banner-text h1 {
+        font-size: 40px; /* Yazı boyutu küçültülür */
+    }
+
+    .social {
+        display: none; /* Sosyal medya bağlantıları gizlenir */
+    }
+    .mobile-cart {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height:50px;
+        border: 1px solid var(--main);
+        border-radius: 50%;
+        background-color: var(--dark);
+    }
+
+    .profilebtn{
+        border: 1px solid var(--main);
+        background-color: var(--main);
+        color: var(--light);
+        
+    }
+}

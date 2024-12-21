@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/menu_item.css' %}">
+{% endblock %}
+{% block content %}
+<div class="menu-container">
+    <h1 class="menu-title">{{ category.name }}</h1>
+    <p class="menu-description mt-3 mb-5">{{ category.description }}</p>
+    <div class="menu-grid">
+        {% for item in items %}
+        <div class="menu-card">
+            <div class="menu-image-wrapper">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="menu-image">
+                {% else %}
+                <img src="{% static 'assets/default-image.jpg' %}" alt="Default Image" class="menu-image">
+                {% endif %}
+            </div>
+            <div class="menu-info">
+                <h2 class="menu-name">{{ item.name }}</h2>
+                <p class="menu-description">{{ item.description }}</p>
+                <p class="menu-price">{{ item.price }} TL</p>
+                <a href="{% url 'add_to_cart' item.id %}" class="menu-add-btn">Add to Cart</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

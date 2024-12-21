@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
+    <title>Restaurant Reservation | {% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show message-box" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Navbar -->
+    {% include 'components/_navbar.html' %}
+    
+    <!-- Content -->
+    <main>
+        {% block content %}
+        <!-- Sayfa içeriği buraya gelecek -->
+        {% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    {% include 'components/_footer.html' %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Mesajları 2 saniye sonra otomatik silmek için JavaScript -->
+    <script>
+        setTimeout(() => {
+            const messages = document.querySelectorAll('.message-box');
+            messages.forEach((message) => {
+                message.classList.remove('show'); // Bootstrap'in fade-out animasyonunu başlatır
+                setTimeout(() => message.remove(), 150); // Animasyon süresi tamamlandıktan sonra mesajı kaldırır
+            });
+        }, 2000); // 2 saniye bekleme süresi
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+<nav>
+    <div class="logo">
+        <img src="{% static 'assets/logo/logo.png' %}" alt="logo" width="120px">
+    </div>
+    <div class="links">
+        <a href="{% url 'home' %}" class="item">AnaSayfa</a>
+        <a href="{% url 'menu_list' %}" class="item">Menü</a>
+        <a href="#" class="item">Rezervasyon</a>
+        <a href="#about" class="item">Hakkımızda</a>
+        <a href="#contact" class="item">İletişim</a>
+    </div>
+    <div class="order">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="profilebtn">{{ request.user.username }}</a>
+        <div class="sepparator"></div>
+        <a href="{% url 'cart_view' %}" class="cartbtn">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-count">{{ cart_count }}</span>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="loginbtn">Login</a>
+        {% endif %}
+    </div>
+    <div class="hamburger">
+        <div style="background-color: var(--dark);">
+            <img src="{% static 'assets/img/spoon.png' %}" alt="hamburger" width="40px">
+        </div>
+        <div>
+            <img style="transform: rotateY(180deg)" src="{% static 'assets/img/knife.png' %}" alt="hamburger" width="40px">
+        </div>
+        <div style="background-color: var(--dark);">
+            <img style="transform: rotateY(180deg)" src="{% static 'assets/img/fork.png' %}" alt="hamburger" width="40px">
+        </div>
+    </div>
+
+    <div class="mobile-cart">
+        <a href="{% url 'cart_view' %}" class="cartbtn">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-count">{{ cart_count }}</span>
+        </a>
+    </div>
+    <div class="mobile-menu">
+        <a href="{% url 'home' %}" class="item">AnaSayfa</a>
+        <a href="{% url 'menu_list' %}" class="item">Menü</a>
+        <a href="#" class="item">Rezervasyon</a>
+        <a href="#about" class="item">Hakkımızda</a>
+        <a href="#contact" class="item">İletişim</a>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="profilebtn">{{ request.user.username }}</a>
+        {% else %}
+        <a href="{% url 'login' %}" class="item">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navbar = document.querySelector('nav');
+    
+        // Hamburger toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+    
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    });
+    
+    
+</script>

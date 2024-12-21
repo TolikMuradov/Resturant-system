@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Checkout Complete{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+{% block content %}
+<div class="checkout-complete-container">
+    <h1>Siparişiniz İçin Teşekkürler!</h1>
+    <p>Siparişiniz başarıyla tamamlandı.</p>
+    <p>Afiyet olsun!</p>
+    <a href="{% url 'menu_list' %}" class="btn continue-shopping-btn">Alışverişe Devam Et</a>
+</div>
+{% endblock %}

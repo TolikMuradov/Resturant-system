@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<div class="checkout-container">
+    <h1>Checkout</h1>
+    <h2>Order Summary</h2>
+    <ul class="order-summary">
+        {% for item in cart_items %}
+        <li>
+            {{ item.item.name }} - {{ item.quantity }} x {{ item.item.price }} TL
+        </li>
+        {% endfor %}
+    </ul>
+    <p>Total: {{ total_price }} TL</p>
+    <form method="post">
+        {% csrf_token %}
+        <h3>Payment Details</h3>
+        <input type="text" name="card_number" placeholder="Card Number" required>
+        <input type="text" name="card_holder" placeholder="Card Holder Name" required>
+        <input type="text" name="expiry_date" placeholder="Expiry Date (MM/YY)" required>
+        <input type="text" name="cvv" placeholder="CVV" required>
+        <button type="submit" class="btn">Complete Purchase</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+:root{
+    --dark: #4A4947;
+    --main: #B17457;
+    --light:#FAF7F0;
+    --secondary: #D8D2C2;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Great Vibes", serif;
+    color: var(--main);
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.cart-container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+    border: 1px solid var(--dark);
+    padding: 10px;
+    text-align: left;
+    color: var(--light);
+}
+
+.cart-table th {
+    background-color: var(--main);
+    font-weight: bold;
+}
+
+.cart-item-image {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.cart-total {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--light);
+}
+
+.remove-btn{
+    padding: 5px 10px;
+    background-color: var(--main);
+    color: var(--light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid var(--main);
+}
+.remove-btn:hover{
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+.empty-cart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-total .checkout-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--main);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cart-total .checkout-btn:hover {
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+.checkout-complete-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--dark);
+    color: var(--light);
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.checkout-complete-container h1 {
+    color: var(--main);
+}
+
+.checkout-complete-container p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.continue-shopping-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--main);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.continue-shopping-btn:hover {
+    background-color: var(--dark);
+    color: var(--light);
+}

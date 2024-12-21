@@ -1,0 +1,86 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Restaurant Reservation | Register</title>
+</head>
+<body>
+<div class="login-background">
+    <div class="blur-effect"></div>
+    <!-- Blur efekti ve form konteyneri -->
+    <div class="login-container">
+        <h2 class="login-title">Kayıt Ol</h2>
+        {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="login-form">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Kullanıcı Adı</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Kullanıcı adınızı girin" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-posta</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="E-posta adresinizi girin" required>
+                </div>
+                <div class="mb-3 position-relative">
+                    <label for="password1" class="form-label">Şifre</label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Şifrenizi girin" required>
+                    <button type="button" class="btn btn-outline-secondary btn-sm toggle-password" onclick="togglePassword('password1', 'password1-icon')">
+                        <i id="password1-icon" class="bi bi-eye"></i>
+                    </button>
+                </div>
+                <div class="mb-3 position-relative">
+                    <label for="password2" class="form-label">Şifre Tekrar</label>
+                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Şifrenizi tekrar girin" required>
+                    <button type="button" class="btn btn-outline-secondary btn-sm toggle-password" onclick="togglePassword('password2', 'password2-icon')">
+                        <i id="password2-icon" class="bi bi-eye"></i>
+                    </button>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
+            </form>
+        </div>
+        <div class="register-link">
+            <p>Zaten hesabınız var mı? <a href="{% url 'login' %}">Giriş Yapın</a></p>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function togglePassword(inputId, iconId) {
+        const passwordInput = document.getElementById(inputId);
+        const passwordIcon = document.getElementById(iconId);
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.classList.remove('bi-eye');
+            passwordIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.classList.remove('bi-eye-slash');
+            passwordIcon.classList.add('bi-eye');
+        }
+    }
+
+    setTimeout(() => {
+        const messages = document.querySelectorAll('.message-box');
+        messages.forEach((message) => {
+            message.classList.remove('show'); // Bootstrap'in fade-out animasyonunu başlatır
+            setTimeout(() => message.remove(), 150); // Animasyon süresi tamamlandıktan sonra mesajı kaldırır
+        });
+    }, 2000); // 2 saniye bekleme süresi
+</script>
+
+</body>
+</html>
