@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Sipariş Geçmişi{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4">Sipariş Geçmişi</h1>
+    {% if orders %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ürünler</th>
+                    <th>Toplam Fiyat</th>
+                    <th>Tarih</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        {% for item in order.parsed_items %}
+                            {{ item.name }} ({{ item.quantity }} adet)<br>
+                        {% endfor %}
+                    </td>
+                    <td>{{ order.total_price }} TL</td>
+                    <td>{{ order.created_at|date:"d M Y H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-center">Sipariş geçmişiniz yok.</p>
+    {% endif %}
+</div>
+{% endblock %}
+

@@ -40,11 +40,13 @@
                         <i id="password-icon" class="bi bi-eye"></i>
                     </button>
                 </div>
+                <p><a href="{% url 'forgot_password' %}" class="forgot">Şifrenizi mi unuttunuz?</a></p>
                 <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
             </form>
         </div>
         <div class="register-link">
             <p>Hesabınız yok mu? <a href="{% url 'register' %}">Kayıt Olun</a></p>
+            
         </div>
     </div>
 </div>

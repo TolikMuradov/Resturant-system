@@ -470,6 +470,23 @@ nav.scrolled .hamburger {
     width: 100%;
 }
 
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid var(--light);
+    z-index: 10;
+}
+
 /* Ekran Genişliğine Göre Uyarlama */
 @media screen and (max-width: 1000px) {
     .links {
@@ -578,6 +595,6 @@ nav.scrolled .hamburger {
         border: 1px solid var(--main);
         background-color: var(--main);
         color: var(--light);
-        
+
     }
 }

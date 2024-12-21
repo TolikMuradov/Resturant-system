@@ -27,6 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+from decouple import config
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "apikey"  # Kullanıcı adı her zaman "apikey" olmalı
+EMAIL_HOST_PASSWORD = config('EMAIL_API')  # Buraya SendGrid API anahtarınızı yapıştırın
+DEFAULT_FROM_EMAIL = "tolikmuradov00@gmail.com"  # Gönderici adresiniz
+PASSWORD_RESET_TIMEOUT = 3600  # 1 saat (saniye cinsinden)
+
 
 # Application definition
 
@@ -91,10 +102,19 @@ DATABASES = {
 AUTH_USER_MODEL = 'kullanici.CustomUser'
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', 'OPTIONS': {'min_length': 8}},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {'min_length': 8},
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
 ]
 
 
@@ -104,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/reservation.css' %}">
+{% endblock %}
+{% block title %}Rezervasyon Yap{% endblock %}
+
+{% block content %}
+<div class="filter"></div>
+<div class="bg">
+    <img src="{% static 'assets/banner/3.jpg' %}" alt="Reservation Image">
+</div>
+<div class="reservation-form">
+    <h1>Rezervasyon Yap</h1>
+    <form method="post" action="{% url 'make_reservation' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" name="name" placeholder="Ad Soyad" value="{{ request.user.username }}" required>
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="E-posta" value="{{ request.user.email }}" required>
+        </div>
+        <div class="mb-3">
+            <input type="tel" name="phone" placeholder="Telefon">
+        </div>
+        <div class="mb-3">
+            <input type="date" name="date" required>
+        </div>
+        <div class="mb-3">
+            <input type="time" name="time" required>
+        </div>
+        <div class="mb-3">
+            <input type="number" name="guests" placeholder="Kişi Sayısı" required>
+        </div>
+        <button type="submit">Rezervasyon Yap</button>
+    </form>
+</div>
+{% endblock %}

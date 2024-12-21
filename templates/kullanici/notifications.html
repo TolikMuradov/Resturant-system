@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/notifications.css' %}">
+{% endblock %}
+{% block title %}Bildirimler{% endblock %}
+
+{% block content %}
+<div class="body">
+    <div class="notifications-container">
+        <h1>Bildirimlerim</h1>
+        {% if notifications %}
+            <ul class="notifications-list">
+                {% for notification in notifications %}
+                <li class="notification-item">
+                    <h3>{{ notification.title }}</h3>
+                    <p>{{ notification.message }}</p>
+                    <p class="date">{{ notification.created_at|date:"d M Y H:i" }}</p>
+                    <a href="{% url 'mark_as_read_and_delete' notification.id %}" class="btn btn-danger btn-sm">Okundu ve Sil</a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Hiç bildiriminiz yok.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

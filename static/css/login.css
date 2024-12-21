@@ -137,3 +137,11 @@ body{
 .toggle-password:hover {
     color: var(--secondary);
 }
+
+.forgot{
+    text-decoration: none;
+    color: var(--dark);
+}
+.forgot:hover{
+    color: var(--main);
+}

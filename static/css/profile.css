@@ -1,0 +1,337 @@
+:root {
+    --dark: #4A4947;
+    --main: #B17457;
+    --light: #FAF7F0;
+    --secondary: #D8D2C2;
+}
+
+body {
+    background-color: var(--light);
+    font-family: Arial, sans-serif;
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header h1 {
+    font-size: 28px;
+    color: var(--main);
+    margin-bottom: 10px;
+}
+
+.profile-header p {
+    color: var(--dark);
+    font-size: 16px;
+}
+
+.profile-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.profile-card {
+    background-color: var(--secondary);
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card h2 {
+    font-size: 20px;
+    color: var(--main);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--main);
+    padding-bottom: 5px;
+}
+
+.profile-card p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--light);
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: var(--main);
+    border: none;
+}
+
+.btn-danger {
+    background-color: var(--dark);
+    border: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--dark);
+    border: 1px solid var(--dark);
+}
+
+.reservations-list {
+    margin-top: 20px;
+}
+
+.reservation-card {
+    background-color: var(--light);
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-card h4 {
+    font-size: 18px;
+    color: var(--main);
+    margin-bottom: 10px;
+}
+
+.reservation-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--light);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    margin: 50px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    color: var(--main);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-group label {
+    font-weight: bold;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+
+.notification-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 5px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+.notification-btn-wrapper {
+    position: relative;
+    width: 300px;
+    height: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--dark);
+    border-radius: 8px;
+}
+.notifications-list {
+    list-style: none;
+    padding: 0;
+}
+.notification-item {
+    border: 1px solid var(--secondary);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: var(--light);
+}
+.notification-item h3 {
+    margin: 0 0 5px 0;
+    color: var(--dark);
+}
+.notification-item p {
+    margin: 0;
+    color: var(--dark);
+}
+.notification-btn{
+    width: 100%;
+    height: 100%;
+    padding-block: 7px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark);
+    border-radius: 8px;
+}
+.notification-btn:hover{
+    color: var(--light);
+    background-color: var(--dark);
+}
+
+
+.order-history {
+    margin-top: 20px;
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 10px;
+
+
+}
+.orders-container {
+    display: flex; /* Flexbox kullanımı */
+    flex-wrap: wrap; /* Elemanların satırı aşarsa yeni bir satır oluşturulmasını sağlar */
+    gap: 20px; /* Kartlar arasında boşluk */
+    justify-content: center; /* Kartların ortalanması */
+    padding: 20px;
+}
+
+.order-card {
+    background-color: #F4F4F4;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    flex: 1 1 calc(33.333% - 40px); /* 3 sütun düzeni, boşlukları hesaba kat */
+    max-width: 300px; /* Kartların maksimum genişliği */
+    min-width: 200px; /* Kartların minimum genişliği */
+    position: relative;
+}
+.order-card::after{
+    position: absolute;
+    content: '';
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-image: url('/static/assets/img/fiss.png');
+    transform: rotateX(180deg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.order-card::before{
+    position: absolute;
+    content: '';
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-image: url('/static/assets/img/fiss.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.order-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.order-card p {
+    margin: 5px 0;
+    color: var(--dark);
+}
+.items-order{
+    width: 100%;
+    height: 100px;
+    overflow: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.items-order::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.items-order {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.order-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item p{
+    font-size: 10px;
+}
+
+.sepp{
+    width: 100%;
+    height: 1px;
+    background-color: var(--dark);
+}
+
+/* Responsive düzen */
+@media (max-width: 768px) {
+    .order-card {
+        flex: 1 1 calc(50% - 20px);
+        margin: 20px; /* Orta boyutlu ekranlarda 2 sütun */
+    }
+}
+
+@media (max-width: 480px) {
+    .order-card {
+        flex: 1 1 100%;
+         /* Küçük ekranlarda kartlar alt alta */
+    }
+}

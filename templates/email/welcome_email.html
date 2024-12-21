@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --dark: #4A4947;
+            --main: #B17457;
+            --light: #FAF7F0;
+            --secondary: #D8D2C2;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: var(--main);
+            color: var(--light);
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            color: var(--dark);
+        }
+        .content h2 {
+            color: var(--dark);
+        }
+        .footer {
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--main);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        a.button:hover {
+            background-color: var(--dark);
+        }
+    </style>
+    <title>Hoş Geldiniz</title>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Hoş Geldiniz!</h1>
+        </div>
+        <div class="content">
+            <h2>Merhaba {{ user.username }},</h2>
+            <p>Aramıza katıldığınız için teşekkür ederiz. Size en iyi deneyimi sunmak için buradayız!</p>
+            <p>Hesabınız başarıyla oluşturuldu. Artık uygulamamızı tam anlamıyla kullanabilirsiniz.</p>
+            <a href="http://localhost:8000" class="button">Hemen Keşfet</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Gentelmen's Resturant</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -10,13 +10,18 @@
     <div class="links">
         <a href="{% url 'home' %}" class="item">AnaSayfa</a>
         <a href="{% url 'menu_list' %}" class="item">Menü</a>
-        <a href="#" class="item">Rezervasyon</a>
-        <a href="#about" class="item">Hakkımızda</a>
-        <a href="#contact" class="item">İletişim</a>
+        <a href="{% url 'make_reservation' %}" class="item">Rezervasyon</a>
+        <a href="{% url 'home' %}#about" class="item">Hakkımızda</a>
+        <a href="{% url 'home' %}#contact" class="item">İletişim</a>
     </div>
     <div class="order">
         {% if request.user.is_authenticated %}
-        <a href="{% url 'profile' %}" class="profilebtn">{{ request.user.username }}</a>
+        <div class="profile-wrapper">
+            <a href="{% url 'profile' %}" class="profilebtn">{{ request.user.username }}</a>
+            {% if unread_notifications_exist %}
+                <div class="notification-dot"></div>
+            {% endif %}
+        </div>
         <div class="sepparator"></div>
         <a href="{% url 'cart_view' %}" class="cartbtn">
             <i class="bi bi-cart3"></i>
