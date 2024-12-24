@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Rezervasyon Durumu Güncelle</h2>
+    <p>Rezervasyon: {{ reservation.name }} ({{ reservation.date }} {{ reservation.time }})</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="status">Durum:</label>
+            <select name="status" id="status" class="form-control">
+                {% for value, label in reservation.STATUS_CHOICES %}
+                <option value="{{ value }}" {% if reservation.status == value %}selected{% endif %}>
+                    {{ label }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+    </form>
+</div>
+{% endblock %}

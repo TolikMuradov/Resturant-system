@@ -321,6 +321,50 @@ body {
     background-color: var(--dark);
 }
 
+
+.reservation-history {
+    margin-top: 2rem;
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.reservation-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservation-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.status-label {
+    font-weight: bold;
+}
+
+.text-success {
+    color: #28a745 !important; /* Bootstrap yeşil */
+}
+
+.text-danger {
+    color: #dc3545 !important; /* Bootstrap kırmızı */
+}
+
+.text-warning {
+    color: #ffc107 !important; /* Bootstrap sarı */
+}
+
+
 /* Responsive düzen */
 @media (max-width: 768px) {
     .order-card {

@@ -1,0 +1,486 @@
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Internal Server Error: /reservation/make/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\reservation\views.py", line 25, in make_reservation
+    existing_reservations = Reservation.objects.filter(
+        table=table,
+    ...<2 lines>...
+        status="approved",
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\sql\query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\sql\query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\sql\query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'table' into field. Choices are: date, email, guests, id, name, phone, status, time, user, user_id
+"POST /reservation/make/ HTTP/1.1" 500 117982
+Internal Server Error: /reservation/make/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\reservation\views.py", line 25, in make_reservation
+    table = get_object_or_404(Table, id=table_id)
+            ^^^^^^^^^^^^^^^^^
+NameError: name 'get_object_or_404' is not defined
+"POST /reservation/make/ HTTP/1.1" 500 71133
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Forbidden (CSRF token from POST incorrect.): /admin/reservation/reservation/
+"POST /admin/reservation/reservation/ HTTP/1.1" 403 2503
+Internal Server Error: /admin/reservation/reservation/7/change/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\contrib\admin\sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\contrib\admin\options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\contrib\admin\options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\contrib\admin\options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\contrib\admin\options.py", line 1294, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\db\models\base.py", line 1013, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\reservation\signals.py", line 69, in clear_table_availability
+    TableAvailability.objects.filter(
+    ^^^^^^^^^^^^^^^^^
+NameError: name 'TableAvailability' is not defined
+"POST /admin/reservation/reservation/7/change/ HTTP/1.1" 500 149408
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527
+Internal Server Error: /reservation/make/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\reservation\views.py", line 85, in make_reservation
+    return render(request, "reservation/make_reservation.html", {"tables": available_tables})
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' if not table.is_available else 'available'' from ''occupied' if not table.is_available else 'available''
+"GET /reservation/make/ HTTP/1.1" 500 210080
+Internal Server Error: /reservation/make/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\reservation\views.py", line 85, in make_reservation
+    return render(request, "reservation/make_reservation.html", {"tables": available_tables})
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' if not table.is_available else 'available'' from ''occupied' if not table.is_available else 'available''
+"GET /reservation/make/ HTTP/1.1" 500 213000
+Internal Server Error: /reservation/make/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\reservation\views.py", line 85, in make_reservation
+    return render(request, "reservation/make_reservation.html", {"tables": available_tables})
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\User\Desktop\Resturent\resturant_reservations\env\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' if not table.is_available else 'available'' from ''occupied' if not table.is_available else 'available''
+"GET /reservation/make/ HTTP/1.1" 500 214761
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3547
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/login/
+"POST /kullanici/login/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://36ca-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3547
+Not Found: /static/css/style.css
+"GET /static/css/style.css HTTP/1.1" 404 179
+Not Found: /static/assets/banner/4.jpg
+"GET /static/assets/banner/4.jpg HTTP/1.1" 404 179
+Not Found: /static/js/main.js
+Not Found: /static/assets/img/sep.png
+"GET /static/js/main.js HTTP/1.1" 404 179
+Not Found: /static/assets/banner/2.jpg
+"GET /static/assets/img/sep.png HTTP/1.1" 404 179
+Not Found: /static/assets/img/knife.png
+"GET /static/assets/banner/2.jpg HTTP/1.1" 404 179
+Not Found: /static/assets/logo/logo.png
+"GET /static/assets/img/knife.png HTTP/1.1" 404 179
+Not Found: /static/assets/img/spoon.png
+"GET /static/assets/logo/logo.png HTTP/1.1" 404 179
+Not Found: /static/assets/banner/1.jpg
+"GET /static/assets/img/spoon.png HTTP/1.1" 404 179
+Not Found: /static/assets/img/fork.png
+"GET /static/assets/banner/1.jpg HTTP/1.1" 404 179
+Not Found: /static/assets/img/owner.png
+Not Found: /static/assets/banner/3.jpg
+"GET /static/assets/img/fork.png HTTP/1.1" 404 179
+"GET /static/assets/img/owner.png HTTP/1.1" 404 179
+"GET /static/assets/banner/3.jpg HTTP/1.1" 404 179
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 179
+Not Found: /static/css/style.css
+"GET /static/css/style.css HTTP/1.1" 404 179
+Not Found: /static/assets/img/spoon.png
+"GET /static/assets/img/spoon.png HTTP/1.1" 404 179
+Not Found: /static/assets/logo/logo.png
+"GET /static/assets/logo/logo.png HTTP/1.1" 404 179
+Not Found: /static/assets/banner/1.jpg
+"GET /static/assets/banner/1.jpg HTTP/1.1" 404 179
+Not Found: /static/assets/banner/2.jpg
+Not Found: /static/assets/banner/4.jpg
+"GET /static/assets/banner/2.jpg HTTP/1.1" 404 179
+Not Found: /static/js/main.js
+"GET /static/assets/banner/4.jpg HTTP/1.1" 404 179
+Not Found: /static/assets/banner/3.jpg
+"GET /static/js/main.js HTTP/1.1" 404 179
+Not Found: /static/assets/img/fork.png
+"GET /static/assets/banner/3.jpg HTTP/1.1" 404 179
+Not Found: /static/assets/img/knife.png
+"GET /static/assets/img/fork.png HTTP/1.1" 404 179
+Not Found: /static/assets/img/owner.png
+"GET /static/assets/img/knife.png HTTP/1.1" 404 179
+"GET /static/assets/img/owner.png HTTP/1.1" 404 179
+Not Found: /static/assets/img/sep.png
+"GET /static/assets/img/sep.png HTTP/1.1" 404 179
+Forbidden (Origin checking failed - https://7a45-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3547
+Forbidden (Origin checking failed - https://5507-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://5507-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://5507-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://5507-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3547
+Forbidden (Origin checking failed - https://bf67-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://bf67-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/login/
+"POST /kullanici/login/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://bf67-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/login/
+"POST /kullanici/login/ HTTP/1.1" 403 2575
+Not Found: /static/css/reservation.css
+"GET /static/css/reservation.css HTTP/1.1" 404 179
+Not Found: /static/css/reservation.css
+"GET /static/css/reservation.css HTTP/1.1" 404 179
+Not Found: /static/css/reservation.css
+"GET /static/css/reservation.css HTTP/1.1" 404 179
+Not Found: /static/css/menu.css
+"GET /static/css/menu.css HTTP/1.1" 404 179
+Not Found: /media/menu_categories/1_g515xKj.png
+"GET /media/menu_categories/1_g515xKj.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/9_vUbRKrs.png
+"GET /media/menu_categories/9_vUbRKrs.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/8_8hUyO2F.png
+Not Found: /media/menu_categories/4_Yi0yRVI.png
+"GET /media/menu_categories/8_8hUyO2F.png HTTP/1.1" 404 179
+"GET /media/menu_categories/4_Yi0yRVI.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/3.png
+"GET /media/menu_categories/3.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/7_fsPpA7I.png
+Not Found: /media/menu_categories/5_fngHQi1.png
+"GET /media/menu_categories/7_fsPpA7I.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/6_kUC22L3.png
+"GET /media/menu_categories/5_fngHQi1.png HTTP/1.1" 404 179
+"GET /media/menu_categories/6_kUC22L3.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/1_g515xKj.png
+Not Found: /static/css/menu.css
+"GET /media/menu_categories/1_g515xKj.png HTTP/1.1" 404 179
+"GET /static/css/menu.css HTTP/1.1" 404 179
+Not Found: /media/menu_categories/6_kUC22L3.png
+"GET /media/menu_categories/6_kUC22L3.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/3.png
+Not Found: /media/menu_categories/7_fsPpA7I.png
+"GET /media/menu_categories/3.png HTTP/1.1" 404 179
+"GET /media/menu_categories/7_fsPpA7I.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/8_8hUyO2F.png
+Not Found: /media/menu_categories/4_Yi0yRVI.png
+"GET /media/menu_categories/8_8hUyO2F.png HTTP/1.1" 404 179
+"GET /media/menu_categories/4_Yi0yRVI.png HTTP/1.1" 404 179
+Not Found: /media/menu_categories/5_fngHQi1.png
+Not Found: /media/menu_categories/9_vUbRKrs.png
+"GET /media/menu_categories/5_fngHQi1.png HTTP/1.1" 404 179
+"GET /media/menu_categories/9_vUbRKrs.png HTTP/1.1" 404 179
+Forbidden (Origin checking failed - https://bf67-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Forbidden (Origin checking failed - https://bf67-184-22-233-114.ngrok-free.app does not match any trusted origins.): /kullanici/register/
+"POST /kullanici/register/ HTTP/1.1" 403 2575
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3527

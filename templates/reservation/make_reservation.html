@@ -12,6 +12,7 @@
 </div>
 <div class="reservation-form">
     <h1>Rezervasyon Yap</h1>
+
     <form method="post" action="{% url 'make_reservation' %}">
         {% csrf_token %}
         <div class="mb-3">
@@ -32,7 +33,65 @@
         <div class="mb-3">
             <input type="number" name="guests" placeholder="Kişi Sayısı" required>
         </div>
+        <div class="mb-3">
+            <button type="button" class="btn btn-primary" onclick="openTableModal()">Masa Seç</button>
+            <input type="hidden" name="table" id="selectedTable">
+        </div>
+        <div id="selectedTableInfo" class="selected-table-info"></div>
         <button type="submit">Rezervasyon Yap</button>
     </form>
 </div>
+
+<!-- Modal -->
+<div class="modal" id="tableModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeTableModal()">&times;</span>
+        <h2 style="text-align: center;">Masa Seç</h2>
+        <div class="table-layout">
+            {% for table in tables %}
+                <div 
+                    class="table {% if not table.is_available %}occupied{% else %}available{% endif %}" 
+                    data-table-id="{{ table.id }}" 
+                    onclick="selectTable(this, {{ table.id }})"
+                >
+                    Masa {{ table.number }} - {{ table.get_seats_display }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTableModal() {
+        document.getElementById('tableModal').style.display = 'flex';
+    }
+    
+    function closeTableModal() {
+        document.getElementById('tableModal').style.display = 'none';
+    }
+    
+    function selectTable(element, tableId) {
+        if (element.classList.contains('occupied')) {
+            alert('Bu masa dolu!');
+            return;
+        }
+        
+        // Daha önce seçilen masayı temizle
+        document.querySelectorAll('.table').forEach(table => table.classList.remove('selected'));
+    
+        // Yeni seçilen masayı işaretle
+        element.classList.add('selected');
+        
+        // Seçilen masa ID'sini forma ekle
+        document.getElementById('selectedTable').value = tableId;
+    
+        // Seçilen masa bilgisi göster
+        const selectedTableInfo = document.getElementById('selectedTableInfo');
+        selectedTableInfo.innerHTML = `Seçilen Masa: ${element.innerText}`;
+    
+        // Modalı kapat
+        closeTableModal();
+    }
+</script>
+
 {% endblock %}

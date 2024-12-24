@@ -16,15 +16,15 @@
 </head>
 <body>
     {% if messages %}
-    <div class="container mt-3">
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show message-box" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
+<div class="custom-messages">
+    {% for message in messages %}
+    <div class="custom-message custom-{{ message.tags }}">
+        {{ message }}
+        <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
     </div>
-    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
     
     <!-- Navbar -->
     {% include 'components/_navbar.html' %}
@@ -45,12 +45,14 @@
     <!-- Mesajları 2 saniye sonra otomatik silmek için JavaScript -->
     <script>
         setTimeout(() => {
-            const messages = document.querySelectorAll('.message-box');
+            const messages = document.querySelectorAll('.custom-message');
             messages.forEach((message) => {
-                message.classList.remove('show'); // Bootstrap'in fade-out animasyonunu başlatır
-                setTimeout(() => message.remove(), 150); // Animasyon süresi tamamlandıktan sonra mesajı kaldırır
+                message.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                message.style.opacity = '0';
+                message.style.transform = 'translateY(-10px)';
+                setTimeout(() => message.remove(), 500);
             });
-        }, 2000); // 2 saniye bekleme süresi
+        }, 5000); // 2 saniye sonra mesajlar kaybolur
 
         
     </script>

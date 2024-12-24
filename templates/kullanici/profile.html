@@ -34,19 +34,34 @@
             </div>
         </div>
 
-        <div class="profile-card">
-            <h2>Rezervasyonlarım</h2>
+        <div class="reservation-history">
+            <h2>Rezervasyon Geçmişim</h2>
             {% if reservations %}
-                <ul class="reservations-list">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {% for reservation in reservations %}
-                        <li class="reservation-item">
-                            <p><strong>Tarih:</strong> {{ reservation.date }}</p>
-                            <p><strong>Saat:</strong> {{ reservation.time }}</p>
-                            <p><strong>Misafir Sayısı:</strong> {{ reservation.guests }}</p>
-                            <p><strong>Durum:</strong> {{ reservation.status }}</p>
-                        </li>
+                    <div class="col">
+                        <div class="card h-100 reservation-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tarih: {{ reservation.date }}</h5>
+                                <p><strong>Saat:</strong> {{ reservation.time }}</p>
+                                <p><strong>Misafir Sayısı:</strong> {{ reservation.guests }}</p>
+                                <p>
+                                    <strong>Durum:</strong> 
+                                    <span class="status-label 
+                                        {% if reservation.status == 'approved' %} text-success 
+                                        {% elif reservation.status == 'cancelled' %} text-danger 
+                                        {% else %} text-warning {% endif %}">
+                                        {{ reservation.status|title }}
+                                    </span>
+                                </p>
+                                {% if reservation.table %}
+                                <p><strong>Masa:</strong> Masa {{ reservation.table.number }} ({{ reservation.table.get_seats_display }})</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
                     {% endfor %}
-                </ul>
+                </div>
             {% else %}
                 <p>Henüz bir rezervasyonunuz bulunmamaktadır.</p>
             {% endif %}

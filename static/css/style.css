@@ -487,6 +487,75 @@ nav.scrolled .hamburger {
     z-index: 10;
 }
 
+
+.custom-messages {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Mesajlar arasında boşluk */
+}
+
+.custom-message {
+    position: relative;
+    background: red;
+    color: var(--light);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    font-family: "Playfair Display", serif;
+    max-width: 300px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Mesaj türlerine özel renkler */
+.custom-success {
+    border-left: 5px solid var(--success);
+}
+
+.custom-error {
+    border-left: 5px solid var(--error);
+}
+
+.custom-warning {
+    border-left: 5px solid var(--warning);
+}
+
+/* Kapatma butonu */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 /* Ekran Genişliğine Göre Uyarlama */
 @media screen and (max-width: 1000px) {
     .links {

@@ -1,58 +1,31 @@
-:root{
+:root {
     --dark: #4A4947;
     --main: #B17457;
-    --light:#FAF7F0;
+    --light: #FAF7F0;
     --secondary: #D8D2C2;
+    --error: #dc3545; /* Kırmızı */
+    --success: #28a745; /* Yeşil */
+    --highlight: #ffc107; /* Sarı */
+    --hover: #ff5722; /* Turuncu */
 }
-body{
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--dark);
-    height: 100vh;
-    width: 100%;
-    
-}
-.bg{
+
+.bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -2;
-    width: 100%;
-    height: 100%;
 }
-.bg img{
+
+.bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-nav{
-    padding: 0px 60px !important;
-}
-footer{
-    display: none;
-}
-.reservation-form{
-    width: 50%;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: rgba(255, 2555, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
-}
-.reservation-form h1{
-    font-size: 40px;
-    font-family: "Great Vibes", serif;
-    letter-spacing: 5px;
-    color: var(--main);
-    text-align: center;
-    margin-bottom: 50px;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.6);
 }
 
-.filter{
+.filter {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,4 +33,154 @@ footer{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
+}
+
+.reservation-form {
+    width: 40%;
+    margin-inline: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: var(--light);
+    text-align: center;
+    margin-block: 20px;
+}
+
+.reservation-form h1 {
+    font-size: 3rem;
+    font-family: "Great Vibes", serif;
+    color: var(--main);
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reservation-form input[type="text"],
+.reservation-form input[type="email"],
+.reservation-form input[type="tel"],
+.reservation-form input[type="date"],
+.reservation-form input[type="time"],
+.reservation-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--light);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.reservation-form button {
+    padding: 10px 20px;
+    background-color: var(--main);
+    border: none;
+    border-radius: 5px;
+    color: var(--light);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.reservation-form button:hover {
+    background-color: var(--hover);
+    transform: scale(1.05);
+}
+
+/* Modal CSS */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light);
+    
+}
+
+.modal-content {
+    background-color: var(--dark);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px !important;
+    color: var(--light);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: var(--secondary);
+}
+
+.table-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.table {
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.table.available {
+    background-color: var(--success);
+    color: white;
+}
+
+.table.occupied {
+    background-color: var(--error);
+    color: white;
+    cursor: not-allowed;
+}
+
+.table.selected {
+    border: 3px solid var(--highlight);
+    transform: scale(1.05);
+}
+
+.table:hover {
+    transform: scale(1.03);
+}
+
+.selected-table-info {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--dark);
+    text-align: center;
 }

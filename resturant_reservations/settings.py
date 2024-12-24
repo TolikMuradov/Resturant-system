@@ -52,9 +52,16 @@ INSTALLED_APPS = [
     'home',
     'menu',
     'reservation',
+    'corsheaders'
 ]
+CSRF_TRUSTED_ORIGINS = [
+    ' https://bf67-184-22-233-114.ngrok-free.app   '
+]
+CSRF_COOKIE_SECURE = False
+CSRF_USE_SESSIONS = False
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -146,3 +153,23 @@ MEDIA_ROOT = BASE_DIR / 'media'  # Yüklenen dosyaların saklanacağı dizin
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'email_errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}

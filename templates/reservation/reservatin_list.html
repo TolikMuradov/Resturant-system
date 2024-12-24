@@ -1,0 +1,45 @@
+<!-- templates/reservation/reservation_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Rezervasyonlar</h2>
+    <div class="filters mb-4">
+        <a href="?status=all" class="btn btn-secondary {% if status_filter == 'all' %}active{% endif %}">Tümü</a>
+        <a href="?status=pending" class="btn btn-warning {% if status_filter == 'pending' %}active{% endif %}">Beklemede</a>
+        <a href="?status=approved" class="btn btn-success {% if status_filter == 'approved' %}active{% endif %}">Onaylanmış</a>
+        <a href="?status=cancelled" class="btn btn-danger {% if status_filter == 'cancelled' %}active{% endif %}">İptal Edilmiş</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>E-posta</th>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th>Misafir Sayısı</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.name }}</td>
+                    <td>{{ reservation.email }}</td>
+                    <td>{{ reservation.date }}</td>
+                    <td>{{ reservation.time }}</td>
+                    <td>{{ reservation.guests }}</td>
+                    <td>
+                        {% if reservation.status == 'pending' %}
+                            <span class="badge bg-warning">Beklemede</span>
+                        {% elif reservation.status == 'approved' %}
+                            <span class="badge bg-success">Onaylanmış</span>
+                        {% else %}
+                            <span class="badge bg-danger">İptal Edilmiş</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
